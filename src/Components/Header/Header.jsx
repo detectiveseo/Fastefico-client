@@ -46,7 +46,7 @@ const Header = () => {
                             <div className='w-2/12 block lg:hidden text-4xl font-bold cursor-pointer' onClick={() => setMobileMenu(!mobileMenu)}><RxCross2 /></div>
                             
                             <Link to="/">হোম</Link>
-                            <Link to="/">মেনু</Link>
+                            <Link to="/menu">মেনু</Link>
                             <Link to="/">শপ</Link>
                             <Link to="/">ব্লগ</Link>
                             <Link to="/">ফাস্তিফিকো সম্পর্কে</Link>
