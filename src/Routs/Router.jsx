@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Header from '../Components/Header/Header';
+import App from '../App';
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <Header />
+        element: <App />
     },
     {
         path: "/*",
