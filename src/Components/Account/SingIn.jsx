@@ -36,6 +36,18 @@ const SingIn = () => {
                     </label>
                     <p>তুমি কি এখানে নুতুন মানুষ ? তাহলে  <Link to="/sing-up" className='underline'>রেজিসট্রেশন</Link> ফর্ম তুমাকে স্বগতম জানচ্ছে</p>
                     <input className='btn bg-blue-500 text-3xl py-3 px-10 pb-12' type="submit" value="লগইন"/>
+
+                    {/* or option for singin  */}
+
+                    <div className='flex justify-center items-center'>
+                        <hr className=' border-t border-blue-500 w-4/12' />
+                        <span>OR</span>
+                        <hr className=' border-t border-blue-500 w-4/12' />
+                    </div>
+                    <div className='flex justify-center gap-5 my-2'>
+                        <div className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>Google</div>
+                        <div className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>GitHub</div>
+                    </div>
                 </form>
             </div>
         </div>
