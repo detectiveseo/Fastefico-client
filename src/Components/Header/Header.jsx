@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {BsFacebook, BsInstagram, BsPinterest, BsStopwatch, BsYoutube, BsPinMap, BsFillTelephoneFill} from 'react-icons/bs'
 import {FiMapPin, FiUser} from 'react-icons/fi'
 import {GrMenu} from 'react-icons/gr'
 import {RxCross2} from 'react-icons/rx'
 import { Link } from 'react-router-dom';
+import { authData } from '../../Provider/AuthProvider';
 
 
 
 const Header = () => {
-    const [user, setuser] = useState(false);
+    // const [user, setuser] = useState(false);
     const [mobileMenu, setMobileMenu] = useState(false);
+    const {user, handleSignOut} = useContext(authData);
+    const [handleSignOutBar, sethandleSignOutBar] = useState(true);
     return (
         <div>
             {/* top bar  */}
@@ -55,7 +58,14 @@ const Header = () => {
 
                     <div className='w-6/12 flex justify-end'>
                         {user ? 
-                        <div  className='flex items-center gap-4 text-2xl font-bold'><FiUser /> ইমরান </div> 
+                        <div  
+                        onClick={() => sethandleSignOutBar(!handleSignOutBar)}
+                        className='flex items-center gap-4 text-2xl font-bold cursor-pointer'>
+                            <img 
+                            className="w-[50px] rounded-full" 
+                            src={user.photoURL} 
+                            alt={user.displayName} /> 
+                            {user.displayName ? user.displayName : "loading.."} </div> 
                         
                         : 
                         
@@ -63,7 +73,10 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-
+                            <div className={`fixed bg-slate-50 w-full h-screen right-0  justify-center items-center top-0 flex-col ${handleSignOutBar ? "hidden" : "flex"}`}>
+                                <p className='text-2xl mb-5 border border-blue-950 p-3 rounded-full px-5 cursor-pointer' onClick={() => sethandleSignOutBar(!handleSignOutBar)}>X</p>
+                                <button className='btn' onClick={handleSignOut}>Sing out</button>
+                            </div>
         </div>
     );
 };
