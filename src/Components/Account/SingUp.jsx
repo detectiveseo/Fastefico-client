@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import registrationImage from '../../img/Banner/h2-gallery-big-8.jpg';
 import { Link } from 'react-router-dom';
+import { authData } from '../../Provider/AuthProvider';
 const SingUp = () => {
 
     const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +15,9 @@ const SingUp = () => {
         const password = form.password.value;
         console.log(name, email, password);
     }
+
+    const uesrData = useContext(authData);
+    console.log(uesrData.user)
     return (
         <div className='bg-violet-100 flex'>
 
