@@ -73,9 +73,9 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-                            <div className={`fixed bg-slate-50 w-full h-screen right-0  justify-center items-center top-0 flex-col ${handleSignOutBar ? "hidden" : "flex"}`}>
-                                <p className='text-2xl mb-5 border border-blue-950 p-3 rounded-full px-5 cursor-pointer' onClick={() => sethandleSignOutBar(!handleSignOutBar)}>X</p>
-                                <button className='btn' onClick={handleSignOut}>Sing out</button>
+                            <div onClick={() => sethandleSignOutBar(!handleSignOutBar)} className={`fixed bg-slate-50 w-full lg:w-2/12 h-screen right-0  justify-center items-center top-0 flex-col ${handleSignOutBar ? "hidden" : "flex"}`}>
+
+                                <button  className='btn' onClick={handleSignOut}>Sing out</button>
                             </div>
         </div>
     );
