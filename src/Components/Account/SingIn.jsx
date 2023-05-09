@@ -4,14 +4,23 @@ import { Link } from 'react-router-dom';
 
 const SingIn = () => {
     const [showPassword, setShowPassword] = useState(false);
+
+    // form handle 
+    const handleForm = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    } 
     return (
         <div className='bg-violet-100 flex'>
             <div className='w-6/12 hidden lg:block'>
-                <img src={loginImage} alt="" />
+                <img className='w-full' src={loginImage} alt="" />
             </div>
 
             <div className='w-full lg:w-6/12 mx-auto '>
-                <form className='flex flex-col gap-5 p-20'>
+                <form className='flex flex-col gap-5 p-20' onSubmit={handleForm}>
                     <h1 className='text-center text-4xl font-bold mb-3'>দ্রুত লগইন করে ফেলো 🙂</h1>
 
                     <label className='w-full font-bold text-2xl' htmlFor="email">ইমেইল
