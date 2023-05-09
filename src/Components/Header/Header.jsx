@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 const Header = () => {
-    const [user, setuser] = useState(true);
+    const [user, setuser] = useState(false);
     const [mobileMenu, setMobileMenu] = useState(false);
     return (
         <div>
@@ -31,7 +31,7 @@ const Header = () => {
                 </div>
             </div>
             {/* navigation bar  */}
-            <nav className='border bg-violet-50 border-blue-500 py-5'>
+            <nav className='border-b bg-violet-50 border-blue-500 py-5'>
                 <div className='w-11/12 lg:w-10/12 mx-auto flex items-center justify-between '>
 
                    <div className='w-2/12 block lg:hidden text-4xl font-bold cursor-pointer' onClick={() => setMobileMenu(!mobileMenu)}><GrMenu /></div>
@@ -55,7 +55,11 @@ const Header = () => {
 
                     <div className='w-6/12 flex justify-end'>
                         {user ? 
-                        <div  className='flex items-center gap-4 text-2xl font-bold'><FiUser /> ইমরান </div> :  <Link><button className='btn bg-blue-500'>Logout</button></Link>}
+                        <div  className='flex items-center gap-4 text-2xl font-bold'><FiUser /> ইমরান </div> 
+                        
+                        : 
+                        
+                        <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">লগইন করো</Link>}
                     </div>
                 </div>
             </nav>

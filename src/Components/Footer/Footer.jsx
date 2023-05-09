@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (<>
     
-    <div className='bg-violet-50'>
-            <div className='w-10/12 mx-auto grid grid-cols-1 lg:grid-cols-4 gap-10 py-20'>
+    <div className='bg-violet-50 border-t border-blue-500'>
+            <div className='w-10/12 mx-auto grid grid-cols-1 lg:grid-cols-4 gap-10 py-20 '>
                 <div>
                     <h1 className='text-5xl font-bold'>ফাস্তিফিকো</h1>
                     <p>ফাস্টিফিকো একটি পরিবেশনার জন্য বিখ্যাত রেস্টুরেন্ট, যেখানে আমরা প্রকার প্রকারের বাংলাদেশী খাবার পরিবেশন করি। আমরা সকালে সবচেয়ে ভালো বাংলাদেশী নাস্তা সরবরাহ করি এবং দুপুর থেকে রাত পর্যন্ত খাবার পরিবেশন করে থাকি।</p>
@@ -25,7 +25,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h1 className='text-3xl font-bold'>যোগাযোগ</h1>
-                    <ol>
+                    <ol className='flex flex-col gap-3 text-2xl'>
                         <li className='flex gap-4 '><BsTelephoneFill /> ০১৯২৬৬২৯৮৫৪</li>
                         <li className='flex gap-4 '><MdOutlineMail /> imboy8585@gmail.com</li>
                         <li className='flex gap-4 '><FaLocationArrow /> Local and Small Business SEO | Detective SEO</li>
