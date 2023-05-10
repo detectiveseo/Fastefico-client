@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import loginImage from '../../img/Banner/h2-gallery-big-7.jpg';
 import { Link } from 'react-router-dom';
+import { authData } from '../../Provider/AuthProvider';
 
 const SingIn = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const {singInWithPassword, clickToCreateUserWtihGoogle} = useContext(authData);
 
     // form handle 
     const handleForm = (e) => {
@@ -11,8 +13,7 @@ const SingIn = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
-    } 
+        singInWithPassword(email, password); }
     return (
         <div className='bg-violet-100 flex'>
             <div className='w-6/12 hidden lg:block'>
@@ -45,7 +46,7 @@ const SingIn = () => {
                         <hr className=' border-t border-blue-500 w-4/12' />
                     </div>
                     <div className='flex justify-center gap-5 my-2'>
-                        <div className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>Google</div>
+                        <div onClick={clickToCreateUserWtihGoogle} className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>Google</div>
                         <div className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>GitHub</div>
                     </div>
                 </form>

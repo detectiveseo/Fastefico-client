@@ -63,7 +63,7 @@ const Header = () => {
                         className='flex items-center gap-4 text-2xl font-bold cursor-pointer'>
                             <img 
                             className="w-[50px] rounded-full" 
-                            src={user.photoURL} 
+                            src={user?.photoURL} 
                             alt={user.displayName} /> 
                             {user.displayName ? user.displayName : "loading.."} </div> 
                         
@@ -73,10 +73,25 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-                            <div onClick={() => sethandleSignOutBar(!handleSignOutBar)} className={`fixed bg-slate-50 w-full lg:w-2/12 h-screen right-0  justify-center items-center top-0 flex-col ${handleSignOutBar ? "hidden" : "flex"}`}>
-
-                                <button  className='btn' onClick={handleSignOut}>Sing out</button>
-                            </div>
+                            {
+                                user ? <div onClick={() => sethandleSignOutBar(!handleSignOutBar)} className={`fixed bg-slate-50 w-full lg:w-2/12 h-screen right-0  r items-center flex-col ${handleSignOutBar ? "hidden" : "flex"}`}>
+                                <img 
+                                className="w-[50px] rounded-full mt-10" 
+                                src={user.photoURL} 
+                                alt={user.displayName} /> 
+                                <h3 className='font-bold'>{user.displayName ? user.displayName : "loading.."}</h3>
+                                <hr className='border-t border-blue-500 w-10/12' />
+                                <ol className='font-bold text-center my-10'>
+                                    <li>Profile</li>
+                                    <li>My Order</li>
+                                    <li>Settings</li>
+                                    <li>{user.email}</li>
+                                </ol>
+                                <hr className='border-t border-blue-500 w-10/12' />
+                                    <button  className='btn mt-10' onClick={handleSignOut}>Sing out</button>
+                                </div> : 
+                                <></>
+                            }
         </div>
     );
 };

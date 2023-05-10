@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GithubAuthProvider, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider } from "firebase/auth";
 import app from '../Components/Account/Firebase/firebase.init';
 
 export const authData = createContext(null);
@@ -13,12 +13,30 @@ const AuthProvider = ({children}) => {
         setLoader(value);
     }
     //create user with emeail and password
-    const createUserEmailFuc = (email, password) => {
+    const createUserEmailFuc = (email, password, name, image) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((res) => {
-                setuser(res.user)
+            const currentUser = res.user;
+            updateProfile(auth.currentUser, {
+                displayName: name,
+                photoURL: image,
+            }).then(() => {
+                setuser(currentUser)
+            }).catch((err) => {
+                alert(err)
+            })
         }).catch((err) => {
             alert(err);
+        })
+    }
+
+    // singin user with password and email 
+    const singInWithPassword = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+        .then((res) => {
+            setuser(res.user)
+        }).catch((err) => {
+            alert(err)
         })
     }
     //create user with google popup
@@ -31,6 +49,20 @@ const AuthProvider = ({children}) => {
             alert(err)
         })
     }
+    //create user with github popup
+    const githubProvider = new GithubAuthProvider;
+    const clickToCreateUserWtihGitHub = () => {
+        signInWithPopup(auth, githubProvider)
+        .then((res) => {
+            const credential = GithubAuthProvider.credentialFromResult(res);
+            const token = credential.accessToken
+            setuser(res.user);
+        }).catch((err) => {
+            alert(err);
+        })
+    }
+
+   
     //user manage
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -40,6 +72,16 @@ const AuthProvider = ({children}) => {
             unSubscribe();
         }
     }, [])
+
+    // update profile 
+    const handleProfile = (name, photoURL) => {
+        updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL,
+        }).then((res) => {
+            console.log(res)
+        }).catch((err) => alert(err))
+    }
 
     //user signOut
     const handleSignOut = () => {
@@ -52,7 +94,10 @@ const AuthProvider = ({children}) => {
         user,
         handleLoader,
         createUserEmailFuc,
+        singInWithPassword,
         clickToCreateUserWtihGoogle,
+        clickToCreateUserWtihGitHub,
+        handleProfile,
         handleSignOut
     }
     return (

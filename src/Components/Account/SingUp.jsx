@@ -6,15 +6,23 @@ import { authData } from '../../Provider/AuthProvider';
 const SingUp = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const {createUserEmailFuc, clickToCreateUserWtihGoogle} = useContext(authData);
+    const [error, setError] = useState("")
+    const {createUserEmailFuc, clickToCreateUserWtihGoogle, clickToCreateUserWtihGitHub} = useContext(authData);
     // handle from 
     const handleForm = (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
+        const image = form.image.value;
         const email = form.email.value;
         const password = form.password.value;
-        createUserEmailFuc(email, password);
+        if(password.length < 6){
+            setError("পাসওয়ার্ট 6 অক্ষরের বেশী লেখো")
+        }else{
+            setError("")
+            createUserEmailFuc(email, password, name, image);
+        }
+
     }
     return (
         <div className='bg-violet-100 flex'>
@@ -23,8 +31,12 @@ const SingUp = () => {
                 <form className='flex flex-col gap-5 p-20 pb-5' onSubmit={handleForm}>
                     <h1 className='text-center text-4xl font-bold mb-3'>নতুন মানুষ তুমাকে দেখে খুব আনন্দ বোধ করছি 🥳</h1>
 
-                    <label className='w-full font-bold text-2xl' htmlFor="email">সম্পুর্ণ নাম
+                    <label className='w-full font-bold text-2xl' htmlFor="name">সম্পুর্ণ নাম
                         <input className='p-3 w-full text-1xl font-normal border-b-4 border-blue-500 bg-slate-100' required type="text" name='name' placeholder='নাম কি তুমার ?'  />
+                    </label>
+
+                    <label className='w-full font-bold text-2xl' htmlFor="image">তোমার ছবি
+                        <input className='p-3 w-full text-1xl font-normal border-b-4 border-blue-500 bg-slate-100' required type="text" name='image' placeholder='তোমার ছবির লিংক দাও'  />
                     </label>
 
                     <label className='w-full font-bold text-2xl' htmlFor="email">ইমেইল
@@ -38,6 +50,7 @@ const SingUp = () => {
                         </div>
                         <input className='p-3 w-full font-normal text-1xl border-b-4 border-blue-500 bg-slate-100' type={showPassword ? "text" : "password"} required name="password" placeholder='তুমার গোপন পাসওযার্ড ?' />
                     </label>
+                    <p className='text-red-600'>{error}</p>
                     <p>তুমার যদি আগের একাউন্ট থেকে থাকে এখানে কি করো ? হুহ... <Link to="/sing-in" className='underline'>লগইন করো</Link> </p>
                     <input className='btn bg-blue-500 text-3xl py-3 px-10 pb-12' type="submit" value="রেজিস্টেশন"/>
                 </form>
@@ -50,7 +63,8 @@ const SingUp = () => {
                     </div>
             <div className='flex justify-center gap-5 my-2'>
                 <div onClick={clickToCreateUserWtihGoogle} className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>Google</div>
-                <div className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>GitHub</div>
+
+                <div onClick={clickToCreateUserWtihGitHub} className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>GitHub</div>
             </div>
             </div>
             <div className='w-6/12 hidden lg:block m-0'>
