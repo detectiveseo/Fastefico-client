@@ -88,7 +88,9 @@ const AuthProvider = ({children}) => {
     //user signOut
     const handleSignOut = () => {
         signOut(auth)
-        .then(() => {}).catch((err) => {alert(err)})
+        .then(() => {
+            setLoader(true)
+        }).catch((err) => {alert(err)})
     }
 
     

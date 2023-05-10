@@ -61,14 +61,17 @@ const Header = () => {
                         
                         <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">লগইন করো</Link>
                         : 
-                        <div  
-                        onClick={() => sethandleSignOutBar(!handleSignOutBar)}
-                        className='flex items-center gap-4 text-2xl font-bold cursor-pointer'>
-                            <img 
-                            className="w-[50px] rounded-full" 
-                            src={user.photoURL} 
-                            alt={user.displayName} /> 
-                            {user.displayName} </div> }
+                        <div>
+                            { user ? <div  
+                            onClick={() => sethandleSignOutBar(!handleSignOutBar)}
+                            className='flex items-center gap-4 text-2xl font-bold cursor-pointer'>
+                                <img 
+                                className="w-[50px] rounded-full" 
+                                src={user.photoURL} 
+                                alt={user.displayName} /> 
+                                {user.displayName} </div> : <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">লগইন করো</Link>
+                            }
+                        </div> }
                     </div>
                 </div>
             </nav>

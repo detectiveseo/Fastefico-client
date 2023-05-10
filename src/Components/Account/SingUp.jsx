@@ -7,7 +7,7 @@ const SingUp = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("")
-    const {createUserEmailFuc, clickToCreateUserWtihGoogle, clickToCreateUserWtihGitHub} = useContext(authData);
+    const {createUserEmailFuc, clickToCreateUserWtihGoogle, clickToCreateUserWtihGitHub, loader} = useContext(authData);
     // handle from 
     const handleForm = (e) => {
         e.preventDefault();
