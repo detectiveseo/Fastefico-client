@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+
 import { BsFacebook, BsInstagram, BsTelephone, BsPinterest } from 'react-icons/bs';
 
 const Chef = () => {
@@ -11,6 +12,9 @@ const Chef = () => {
         .then((res) => res.json())
         .then((data) => setRecipes(data));
     }, [])
+
+
+    // const notification = () => toast("পছন্দ করা হয়েছে");
 
     return (
         <div className=' bg-violet-50'>
@@ -37,18 +41,23 @@ const Chef = () => {
 
                 <div className='w-10/12 lg:w-full mx-auto'>
                     <h2 className='text-5xl font-bold mt-10'>My Recipes</h2>
-                    <div className='grid grid-flow-row lg:grid-flow-col justify-between gap-6 mt-10'>
+                    <div className='grid grid-cols-1 lg:grid-cols-3 justify-between gap-6 mt-10'>
                         {
                             recipes.map(recipe => {
-                                const {name, price, description, protein} = recipe;
+                                const {name, price, description, protein, img} = recipe;
+                                console.log(recipe)
                                 return (
-                                    <div key={name} className='p-3 border border-blue-500'>
+                                    <div key={name}>
+                                        <img className='w-full h-[400px] object-cover' src={img} alt="" />
+                                        <div  className='p-3 border border-blue-500'>
                                         <h4 className='text-2xl font-bold'>{name}</h4>
                                         <div className='flex justify-between'>
                                             <span>{price} $</span>
                                             <span>Protein {protein}</span>
                                         </div>
                                         <p>{description}</p>
+                                        <button className='btn mt-3'>এক্কারে মনের মতো </button>
+                                        </div>
                                     </div>
                                 )
                             })

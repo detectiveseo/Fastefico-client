@@ -5,7 +5,7 @@ import { authData } from '../../Provider/AuthProvider';
 
 const SingIn = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {singInWithPassword, clickToCreateUserWtihGoogle} = useContext(authData);
+    const {singInWithPassword, clickToCreateUserWtihGoogle, clickToCreateUserWtihGitHub} = useContext(authData);
 
     // form handle 
     const handleForm = (e) => {
@@ -13,7 +13,9 @@ const SingIn = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        singInWithPassword(email, password); }
+        singInWithPassword(email, password); 
+        form.reset();
+    }
     return (
         <div className='bg-violet-100 flex'>
             <div className='w-6/12 hidden lg:block'>
@@ -47,7 +49,7 @@ const SingIn = () => {
                     </div>
                     <div className='flex justify-center gap-5 my-2'>
                         <div onClick={clickToCreateUserWtihGoogle} className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>Google</div>
-                        <div className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>GitHub</div>
+                        <div onClick={clickToCreateUserWtihGitHub} className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>GitHub</div>
                     </div>
                 </form>
             </div>

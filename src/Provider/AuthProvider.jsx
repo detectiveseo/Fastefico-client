@@ -77,15 +77,7 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
-    // update profile 
-    const handleProfile = (name, photoURL) => {
-        updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: photoURL,
-        }).then((res) => {
-            console.log(res)
-        }).catch((err) => alert(err))
-    }
+
 
     //user signOut
     const handleSignOut = () => {
@@ -103,7 +95,6 @@ const AuthProvider = ({children}) => {
         singInWithPassword,
         clickToCreateUserWtihGoogle,
         clickToCreateUserWtihGitHub,
-        handleProfile,
         handleSignOut,
         loader
     }

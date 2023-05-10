@@ -21,6 +21,7 @@ const SingUp = () => {
         }else{
             setError("")
             createUserEmailFuc(email, password, name, image);
+            form.reset()
         }
 
     }

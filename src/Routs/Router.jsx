@@ -6,6 +6,7 @@ import Menu from '../Components/Pages/Menu/Menu';
 import Chef from '../Components/Pages/Chef/Chef';
 import SingIn from '../Components/Account/SingIn';
 import SingUp from '../Components/Account/SingUp';
+import Private from '../Components/Private';
 
 
 
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/chef/:id",
-                element: <Chef></Chef>,
+                element: <Private><Chef></Chef></Private>,
                 loader: ({params}) => fetch(`http://localhost:2000/chefs/${params.id}`)
             },
             {
