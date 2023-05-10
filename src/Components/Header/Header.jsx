@@ -57,21 +57,17 @@ const Header = () => {
                     </div>
 
                     <div className='w-6/12 flex justify-end'>
-                        {loader ? 
+                        {!user ? 
                         
                         <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">লগইন করো</Link>
-                        : 
-                        <div>
-                            { user ? <div  
+                        : <div  
                             onClick={() => sethandleSignOutBar(!handleSignOutBar)}
                             className='flex items-center gap-4 text-2xl font-bold cursor-pointer'>
                                 <img 
                                 className="w-[50px] rounded-full" 
                                 src={user.photoURL} 
                                 alt={user.displayName} /> 
-                                {user.displayName} </div> : <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">লগইন করো</Link>
-                            }
-                        </div> }
+                                {user.displayName} </div> }
                     </div>
                 </div>
             </nav>

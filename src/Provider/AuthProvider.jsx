@@ -21,8 +21,10 @@ const AuthProvider = ({children}) => {
                 displayName: name,
                 photoURL: image,
             }).then(() => {
-                setuser(currentUser);
-                setLoader(false);
+                if(loader){
+                    setLoader(true)
+                    setuser(currentUser);
+                }
             }).catch((err) => {
                 alert(err)
             })
