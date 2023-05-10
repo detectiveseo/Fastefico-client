@@ -7,7 +7,7 @@ const auth = getAuth(app)
 
 const AuthProvider = ({children}) => {
     const [user, setuser] = useState([])
-    const [loader, setLoader] = useState(false);
+    const [loader, setLoader] = useState(true);
     //set loader
     const handleLoader = (value) => {
         setLoader(value);
@@ -21,7 +21,8 @@ const AuthProvider = ({children}) => {
                 displayName: name,
                 photoURL: image,
             }).then(() => {
-                setuser(currentUser)
+                setuser(currentUser);
+                setLoader(false);
             }).catch((err) => {
                 alert(err)
             })
@@ -67,6 +68,7 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setuser(currentUser)
+            setLoader(false)
         })
         return () => {
             unSubscribe();
@@ -98,7 +100,8 @@ const AuthProvider = ({children}) => {
         clickToCreateUserWtihGoogle,
         clickToCreateUserWtihGitHub,
         handleProfile,
-        handleSignOut
+        handleSignOut,
+        loader
     }
     return (
         <authData.Provider value={authValue}>

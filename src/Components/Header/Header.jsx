@@ -11,7 +11,7 @@ import { authData } from '../../Provider/AuthProvider';
 const Header = () => {
     // const [user, setuser] = useState(false);
     const [mobileMenu, setMobileMenu] = useState(false);
-    const {user, handleSignOut} = useContext(authData);
+    const {user, handleSignOut, loader} = useContext(authData);
     const [handleSignOutBar, sethandleSignOutBar] = useState(true);
     return (
         <div>
@@ -57,19 +57,18 @@ const Header = () => {
                     </div>
 
                     <div className='w-6/12 flex justify-end'>
-                        {user ? 
+                        {loader ? 
+                        
+                        <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">লগইন করো</Link>
+                        : 
                         <div  
                         onClick={() => sethandleSignOutBar(!handleSignOutBar)}
                         className='flex items-center gap-4 text-2xl font-bold cursor-pointer'>
                             <img 
                             className="w-[50px] rounded-full" 
-                            src={user?.photoURL} 
+                            src={user.photoURL} 
                             alt={user.displayName} /> 
-                            {user.displayName ? user.displayName : "loading.."} </div> 
-                        
-                        : 
-                        
-                        <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">লগইন করো</Link>}
+                            {user.displayName} </div> }
                     </div>
                 </div>
             </nav>
