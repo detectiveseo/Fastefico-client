@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData } from 'react-router-dom';
 
 import { BsFacebook, BsInstagram, BsTelephone, BsPinterest } from 'react-icons/bs';
@@ -13,8 +15,13 @@ const Chef = () => {
         .then((data) => setRecipes(data));
     }, [])
 
+    const notify = (e) => {
+        toast("এটি তুমার মনের মতো আমরা মেনে নিলাম 🥰");
+        const btn = e.target;
+        btn.setAttribute("disabled", "") 
+    }
 
-    // const notification = () => toast("পছন্দ করা হয়েছে");
+
 
     return (
         <div className=' bg-violet-50'>
@@ -55,13 +62,14 @@ const Chef = () => {
                                             <span>Protein {protein}</span>
                                         </div>
                                         <p>{description}</p>
-                                        <button className='btn mt-3'>এক্কারে মনের মতো </button>
+                                        <button onClick={notify} className='btn mt-3'>এক্কারে মনের মতো </button>
                                         </div>
                                     </div>
                                 )
                             })
                         }
                     </div>
+                    <ToastContainer />
 
                 </div>
             </div>
