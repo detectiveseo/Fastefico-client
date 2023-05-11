@@ -7,6 +7,7 @@ import Chef from '../Components/Pages/Chef/Chef';
 import SingIn from '../Components/Account/SingIn';
 import SingUp from '../Components/Account/SingUp';
 import Private from '../Components/Private';
+import ErrorPage from '../Components/Pages/ErrorPage/ErrorPage';
 
 
 
@@ -35,11 +36,11 @@ export const router = createBrowserRouter([
             {
                 path: "/sing-up",
                 element: <SingUp></SingUp>
+            },
+            {
+                path: "/*",
+                element: <ErrorPage></ErrorPage>
             }
         ]
-    },
-    {
-        path: "/*",
-        element: "404 error"
     }
 ])
