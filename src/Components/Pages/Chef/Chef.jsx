@@ -45,7 +45,6 @@ const Chef = () => {
                         {
                             recipes.map(recipe => {
                                 const {name, price, description, protein, img} = recipe;
-                                console.log(recipe)
                                 return (
                                     <div key={name}>
                                         <img className='w-full h-[400px] object-cover' src={img} alt="" />

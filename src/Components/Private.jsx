@@ -1,10 +1,15 @@
 import React, { Children, useContext } from 'react';
 import { authData } from '../Provider/AuthProvider';
+import { Navigate } from 'react-router-dom';
 
 const Private = ({children}) => {
 
     const {user} = useContext(authData);
-    console.log(user)
+    if(!user){
+        return (
+            <Navigate to="/sing-in" replace={true}></Navigate>
+        );
+    }
 
     return (
         <div>
