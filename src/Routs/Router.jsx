@@ -8,6 +8,7 @@ import SingIn from '../Components/Account/SingIn';
 import SingUp from '../Components/Account/SingUp';
 import Private from '../Components/Private';
 import ErrorPage from '../Components/Pages/ErrorPage/ErrorPage';
+import Blog from '../Components/Pages/Blog/Blog';
 
 
 
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: "/sing-up",
                 element: <SingUp></SingUp>
+            },
+            {
+                path: "/blog",
+                element: <Blog></Blog>
             },
             {
                 path: "/*",
