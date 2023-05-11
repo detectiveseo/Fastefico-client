@@ -7,7 +7,7 @@ import Chefs from './HomeComponents.jsx/Chefs';
 const Home = () => {
     const [chefs, setChefs] = useState([])
     useEffect(() => {
-        fetch("http://localhost:2000/chefs")
+        fetch("https://server-detectiveseo.vercel.app/chefs")
         .then((res) => res.json())
         .then(data => setChefs(data))
     }, [])

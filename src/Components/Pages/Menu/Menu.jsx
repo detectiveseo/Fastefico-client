@@ -21,7 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
             
         }
         useEffect(() => {
-            fetch("http://localhost:2000/foods")
+            fetch("https://server-detectiveseo.vercel.app/foods")
             .then((res) => res.json())
             .then((data) => setFoods(data))
         }, [])
