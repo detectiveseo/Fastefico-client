@@ -10,7 +10,7 @@ const Chef = () => {
   
     const [recipes, setRecipes] = useState([]);
     useEffect(()=> {
-        fetch(`http://localhost:2000/foods/${name}`)
+        fetch(`https://server-detectiveseo.vercel.app/foods/${name}`)
         .then((res) => res.json())
         .then((data) => setRecipes(data));
     }, [])
