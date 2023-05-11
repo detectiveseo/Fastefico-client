@@ -3,8 +3,9 @@ import {BsFacebook, BsInstagram, BsPinterest, BsStopwatch, BsYoutube, BsPinMap, 
 import {FiMapPin, FiUser} from 'react-icons/fi'
 import {GrMenu} from 'react-icons/gr'
 import {RxCross2} from 'react-icons/rx'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { authData } from '../../Provider/AuthProvider';
+import ActiveLink from './ActiveLink';
 
 
 
@@ -48,11 +49,11 @@ const Header = () => {
                             
                             <div className='w-2/12 block lg:hidden text-4xl font-bold cursor-pointer' onClick={() => setMobileMenu(!mobileMenu)}><RxCross2 /></div>
                             
-                            <Link to="/">হোম</Link>
-                            <Link to="/menu">মেনু</Link>
-                            <Link to="/">শপ</Link>
-                            <Link to="/">ব্লগ</Link>
-                            <Link to="/">ফাস্তিফিকো সম্পর্কে</Link>
+                            <ActiveLink to="/">হোম</ActiveLink>
+                            <ActiveLink to="/menu">মেনু</ActiveLink>
+                            <ActiveLink to="/shop">শপ</ActiveLink>
+                            <ActiveLink to="/blog">ব্লগ</ActiveLink>
+                            <ActiveLink to="/about-us">ফাস্তিফিকো সম্পর্কে</ActiveLink>
                         </div>
                     </div>
 
