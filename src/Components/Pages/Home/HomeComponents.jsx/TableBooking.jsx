@@ -35,7 +35,7 @@ const TableBooking = () => {
                         name="sitNum"
                         required
                         className=" border-b-2 p-2" id="cars">
-                        <option selected value="select">Select Persion</option>
+                        <option value="select">Select Persion</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

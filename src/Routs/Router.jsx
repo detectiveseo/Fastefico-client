@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
             {
                 path: "/chef/:id",
                 element: <Private><Chef></Chef></Private>,
-                loader: ({params}) => fetch(`https://server-detectiveseo.vercel.app/chefs/${params.id}`)
+                loader: ({params}) => fetch(`https://b7a10-chef-recipe-hunter-server-side-detectiveseo.vercel.app/chefs/${params.id}`)
             },
             {
                 path: "/sing-in",
