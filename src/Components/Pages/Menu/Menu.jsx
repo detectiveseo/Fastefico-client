@@ -18,7 +18,7 @@ const Menu = () => {
 
     }
     useEffect(() => {
-        fetch("http://localhost:3000/foods")
+        fetch("https://b7a10-chef-recipe-hunter-server-side-detectiveseo.vercel.app/foods")
             .then((res) => res.json())
             .then((data) => setFoods(data))
     }, [])

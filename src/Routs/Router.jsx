@@ -1,3 +1,4 @@
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import Home from '../Components/Pages/Home/Home';
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
             {
                 path: "/chef/:id",
                 element: <Private><Chef></Chef></Private>,
-                loader: ({params}) => fetch(`http://localhost:3000/chefs/${params.id}`)
+                loader: ({params}) => fetch(`https://server-detectiveseo.vercel.app/chefs/${params.id}`)
             },
             {
                 path: "/sing-in",
