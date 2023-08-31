@@ -43,7 +43,7 @@ const Header = () => {
 
                     <div className='flex  items-center justify-between w-6/12'>
 
-                        <div className="w-6/12 text-3xl lg:text-5xl uppercase font-bold text-center">Fastefico</div>
+                        <Link to="/" className="w-6/12 text-3xl lg:text-5xl uppercase font-bold text-center">Fastefico</Link>
 
                         <div className={`w-/4-12 flex flex-col lg:flex-row justify-end gap-5 text-2xl italic font-bold fixed lg:static top-0 p-5 bg-slate-200 lg:bg-transparent w-full ${mobileMenu ? "left-0" : "-left-[700px]"}`}>
                             

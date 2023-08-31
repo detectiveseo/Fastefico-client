@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData } from 'react-router-dom';
 
 import { BsFacebook, BsInstagram, BsTelephone, BsPinterest } from 'react-icons/bs';
+import MenuCard from '../../Shared/MenuCard';
 
 const Chef = () => {
     const {id, picture, name, experience_years, recipe_count, bio} = useLoaderData();
@@ -14,12 +15,6 @@ const Chef = () => {
         .then((res) => res.json())
         .then((data) => setRecipes(data));
     }, [])
-
-    const notify = (e) => {
-        toast("Selected as a favorite");
-        const btn = e.target;
-        btn.setAttribute("disabled", "") 
-    }
 
 
 
@@ -50,21 +45,9 @@ const Chef = () => {
                     <h2 className='text-5xl font-bold mt-10'>My Recipes</h2>
                     <div className='grid grid-cols-1 lg:grid-cols-3 justify-between gap-6 mt-10'>
                         {
-                            recipes.map(recipe => {
-                                const {name, price, description, protein, img} = recipe;
+                            recipes.map(food => {
                                 return (
-                                    <div key={name}>
-                                        <img className='w-full h-[400px] object-cover' src={img} alt="" />
-                                        <div  className='p-3 border border-blue-500'>
-                                        <h4 className='text-2xl font-bold'>{name}</h4>
-                                        <div className='flex justify-between'>
-                                            <span>{price} $</span>
-                                            <span>Protein {protein}</span>
-                                        </div>
-                                        <p>{description}</p>
-                                        <button onClick={notify} className='btn mt-3'>এক্কারে মনের মতো </button>
-                                        </div>
-                                    </div>
+                                    <MenuCard key={food.id} food={food} />
                                 )
                             })
                         }
