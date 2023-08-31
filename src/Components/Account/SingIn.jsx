@@ -2,6 +2,7 @@ import  { useContext, useState } from 'react';
 import loginImage from '../../img/Banner/h2-gallery-big-7.jpg';
 import { Link } from 'react-router-dom';
 import { authData } from '../../Provider/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin';
 
 const SingIn = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -47,10 +48,7 @@ const SingIn = () => {
                         <span>OR</span>
                         <hr className=' border-t border-blue-500 w-4/12' />
                     </div>
-                    <div className='flex justify-center gap-5 my-2'>
-                        <div onClick={clickToCreateUserWtihGoogle} className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>Google</div>
-                        <div onClick={clickToCreateUserWtihGitHub} className='border border-blue-500 py-3 px-7 text-3xl font-bold rounded'>GitHub</div>
-                    </div>
+                    <SocialLogin />
                 </form>
             </div>
         </div>

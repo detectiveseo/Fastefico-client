@@ -17,7 +17,7 @@ const ChefsCard = ({ chef }) => {
                     <span>Reecipe: {recipe_count}</span>
                     <span>Likes: {likes}</span>
                 </div>
-                <Link className='w-full btn bg-blue-500' to={`chef/${id}`}>My recipes
+                <Link className='w-full btn bg-blue-500 rounded-none' to={`chef/${id}`}>My recipes
                 </Link>
             </div>
         </div>

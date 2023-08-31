@@ -6,9 +6,9 @@ import img4 from '../../../../assets/ilishMas-torkari.webp'
 
 const PopularItem = () => {
     return (
-        <div className='flex flex-col md:flex-row '>
-            <div className='md:w-6/12'>
-                <img className='w-full h-[80vh] object-cover' src={riceImg} alt="" />
+        <div className='flex flex-col md:flex-row border border-[#3B82F6]'>
+            <div className='md:w-6/12 border border-[#3B82F6]'>
+                <img className='w-full h-[96] md:h-[80vh] object-cover' src={riceImg} alt="" />
             </div>
             <div className='md:w-6/12'>
                 <div className='flex flex-col justify-center h-full p-10'>

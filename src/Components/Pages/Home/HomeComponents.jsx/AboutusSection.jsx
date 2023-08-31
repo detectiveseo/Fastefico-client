@@ -1,4 +1,4 @@
-import chefImage from '../../../../img/chef/about-1.png';
+import chefImage from '../../../../img/chef/Suresh_Pillai-removebg-preview.png';
 import {SiFoodpanda} from 'react-icons/si';
 import {GiFullPizza} from 'react-icons/gi';
 import {BiDrink} from 'react-icons/bi'
@@ -7,8 +7,8 @@ const AboutusSection = () => {
     return (
         <div className= 'bg-violet-100'>
             <div className='w-10/12 mx-auto flex flex-col-reverse lg:flex-row'>
-                <div className='w-full lg:w-6/12'>
-                    <img src={chefImage} />
+                <div className='w-full lg:w-6/12 flex justify-center items-end'>
+                    <img className='drop-shadow-2xl' src={chefImage} />
                 </div>
                 <div className='w-full lg:w-6/12 flex flex-col items-center justify-center'>
                     <div>
