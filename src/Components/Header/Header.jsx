@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
-import {BsFacebook, BsInstagram, BsPinterest, BsStopwatch, BsYoutube, BsPinMap, BsFillTelephoneFill} from 'react-icons/bs'
-import {FiMapPin, FiUser} from 'react-icons/fi'
+import { useContext, useState } from 'react';
+import {BsFacebook, BsInstagram, BsPinterest, BsStopwatch, BsYoutube, BsFillTelephoneFill} from 'react-icons/bs'
+import {FiMapPin} from 'react-icons/fi'
 import {GrMenu} from 'react-icons/gr'
 import {RxCross2} from 'react-icons/rx'
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { authData } from '../../Provider/AuthProvider';
 import ActiveLink from './ActiveLink';
 
@@ -12,7 +12,7 @@ import ActiveLink from './ActiveLink';
 const Header = () => {
     // const [user, setuser] = useState(false);
     const [mobileMenu, setMobileMenu] = useState(false);
-    const {user, handleSignOut, loader} = useContext(authData);
+    const {user, handleSignOut} = useContext(authData);
     const [handleSignOutBar, sethandleSignOutBar] = useState(true);
     return (
         <div>
@@ -21,9 +21,9 @@ const Header = () => {
                 <div className='w-10/12 mx-auto flex justify-center items-center'>
                     <div className='w-6/12'>
                         <ol className='flex items-center gap-4'>
-                            <li><BsStopwatch className='inline ml-3' /> এখন খোলা</li>
-                            <li><FiMapPin className='inline ml-3' /> আপনার ঠিকানা নির্বাচন করুন</li>
-                            <li><BsFillTelephoneFill className='inline ml-3' /> ০১৯২৬৬২৯৮৫৪</li>
+                            <li><BsStopwatch className='inline ml-3' /> Open</li>
+                            <li><FiMapPin className='inline ml-3' /> Select your address</li>
+                            <li><BsFillTelephoneFill className='inline ml-3' /> +8801926629854</li>
                         </ol>
                     </div>
                     <div className='w-6/12 flex justify-end gap-5 text-2xl'>
@@ -43,24 +43,23 @@ const Header = () => {
 
                     <div className='flex  items-center justify-between w-6/12'>
 
-                        <div className="w-6/12 text-3xl lg:text-5xl uppercase font-bold text-center">ফাস্তিফিকো</div>
+                        <div className="w-6/12 text-3xl lg:text-5xl uppercase font-bold text-center">Fastefico</div>
 
                         <div className={`w-/4-12 flex flex-col lg:flex-row justify-end gap-5 text-2xl italic font-bold fixed lg:static top-0 p-5 bg-slate-200 lg:bg-transparent w-full ${mobileMenu ? "left-0" : "-left-[700px]"}`}>
                             
                             <div className='w-2/12 block lg:hidden text-4xl font-bold cursor-pointer' onClick={() => setMobileMenu(!mobileMenu)}><RxCross2 /></div>
                             
-                            <ActiveLink to="/">হোম</ActiveLink>
-                            <ActiveLink to="/menu">মেনু</ActiveLink>
-                            <ActiveLink to="/shop">শপ</ActiveLink>
-                            <ActiveLink to="/blog">ব্লগ</ActiveLink>
-                            <ActiveLink to="/about-us">ফাস্তিফিকো সম্পর্কে</ActiveLink>
+                            <ActiveLink to="/">Home</ActiveLink>
+                            <ActiveLink to="/menu">Menu</ActiveLink>
+                            <ActiveLink to="/shop">Shop</ActiveLink>
+                            <ActiveLink to="/blog">Blog</ActiveLink>
                         </div>
                     </div>
 
                     <div className='w-6/12 flex justify-end'>
                         {!user ? 
                         
-                        <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">লগইন করো</Link>
+                        <Link className='text-2xl font-bold italic text-blue-900 underline' to="/sing-in">Login Now</Link>
                         : <div  
                             onClick={() => sethandleSignOutBar(!handleSignOutBar)}
                             className='flex items-center gap-4 text-2xl font-bold cursor-pointer'>

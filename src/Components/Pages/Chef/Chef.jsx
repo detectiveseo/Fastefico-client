@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData } from 'react-router-dom';
@@ -10,13 +10,13 @@ const Chef = () => {
   
     const [recipes, setRecipes] = useState([]);
     useEffect(()=> {
-        fetch(`https://server-detectiveseo.vercel.app/foods/${name}`)
+        fetch(`http://localhost:3000/foods/${name}`)
         .then((res) => res.json())
         .then((data) => setRecipes(data));
     }, [])
 
     const notify = (e) => {
-        toast("এটি তুমার মনের মতো আমরা মেনে নিলাম 🥰");
+        toast("Selected as a favorite");
         const btn = e.target;
         btn.setAttribute("disabled", "") 
     }
